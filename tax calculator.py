@@ -27,7 +27,7 @@ def tax(income, source):
                 real_estate = float(input("How much of it is from residential: £"))
             except:
                 print("Error: Data Type invlaid")
-                tax(income, source) #when this line is changed to return tax(...), it no longer returns an exception
+                tax(income, source) #when line is changed to return tax(...), it no longer returns an exception
             valid = True
             sub_tax = 0.2*(income-real_estate) - 0.28*real_estate
         print(sub_tax)#need to round numbers afterwards
