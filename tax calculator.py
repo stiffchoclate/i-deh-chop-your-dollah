@@ -19,6 +19,22 @@ second, the func for taking input.
 third, the functional part; acc mapping each income source to the necessary tax functions e.g  def tax(income, source)"""
 
 #assume inputs are valid rn
+statement = [[],[]]
+def start(statement):
+    try:
+        a = float(input("Enter ur income from one source this year: £"))
+        b = input("What is it's source? [capital gains, salary & income, shares & dividends]")
+        b = b.rstrip()
+        if b!="capital gains" and b!="salary" and b!="income" and b!="shares" and b!="dividends":
+            print(r) # this will raise an error if the source isnt correct
+        statement[0].append(a)
+        statement[1].append(b)
+    except:
+        print("Error: invalid input. PLease enter a valid amount of money & valid source type")
+        return(start(statement))
+    return (statement)
+
+
 def tax(income, source):
     valid = False
     if source == "capital gains":
@@ -27,7 +43,7 @@ def tax(income, source):
                 real_estate = float(input("How much of it is from residential: £"))
             except:
                 print("Error: Data Type invlaid")
-                tax(income, source) #when line is changed to return tax(...), it no longer returns an exception
+                tax(income, source) #when this line is changed to return tax(...), it no longer returns an exception
             valid = True
             sub_tax = 0.2*(income-real_estate) - 0.28*real_estate
         print(sub_tax)#need to round numbers afterwards
@@ -41,4 +57,3 @@ def tax(income, source):
     print(real_estate)
 
     
-tax(124123, "capital gains")
