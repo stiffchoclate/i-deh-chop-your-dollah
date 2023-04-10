@@ -3,6 +3,7 @@
 #purpose; tax collector bih
 
 #dope thoughts, dope shit
+from prettytable import PrettyTable
 incomes = [[],[],[]] #amount of income, type, taxes 
 
 def sources(incomes):
@@ -53,12 +54,13 @@ def show(incomes):#unfin
     for a in range(0,len(incomes[2])):
         incomes[0][a] = round(incomes[0][a], 2)
     
-    print(incomes)
-
-    
-        
-
-    print(incomes[0], incomes[1], incomes[2])
+    myTable = PrettyTable(["Class", "Inflow", "Payable Tax"])
+    for a in range(1,len(incomes)):
+        for b in range(len(incomes[a])):
+            incomes[a][b]= "£" + str(incomes[a][b])#to add pounds signs to new table
+    for n in range(len(incomes[0])):
+        myTable.add_row([incomes[1][n], incomes[0][n], incomes[2][n]])
+    print(myTable)
 
 def regular(k):
     if k>125140:
